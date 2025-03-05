@@ -1,0 +1,10 @@
+
+.navbar{
+    position: absolute;
+    top: 2vh;
+    left: 0;
+    display:flex ;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100vw;
+}
