@@ -2,6 +2,7 @@ import React from "react";
 import { useState} from "react";
 import "./HomePage.css";
 
+
 function HomePage(){
 const [search, setSearch] = useState("");
 const [searchto, setSearchto] = useState("");
@@ -36,6 +37,7 @@ const [date, setDate] = useState("");
                 />
             </div> 
        </div>
+    
     )
 }
 
