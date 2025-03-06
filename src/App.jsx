@@ -6,7 +6,6 @@ import ListOfTravels from './components/ListOfTravels';
 import Signin from './pages/Signin';
 import Signup from './pages/Signup';
 import TravelDetail from './pages/TravelDetails';
-
 function App() {
   return (
     <>
@@ -21,5 +20,4 @@ function App() {
     </>
   );
 }
-
 export default App;
