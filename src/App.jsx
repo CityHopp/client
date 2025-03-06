@@ -13,8 +13,9 @@ function App() {
 
   return (
     <>
-   <Signup/>
-
+    <Navbar />
+    <HomePage />
+    <ListOfTravels />
     </>
   )
 }
