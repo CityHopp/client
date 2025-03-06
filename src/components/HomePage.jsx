@@ -1,7 +1,7 @@
 import React from "react";
 import { useState} from "react";
 import "./HomePage.css";
-
+import ListOfTravels from './ListOfTravels';
 
 function HomePage(){
 const [search, setSearch] = useState("");
@@ -13,7 +13,6 @@ const [date, setDate] = useState("");
      <div className="container">
      <div className="cover"> </div>
    < div className="searchbar">
-
                 <form role="search-from-where">
                     <input 
                         type="text"
@@ -35,6 +34,7 @@ const [date, setDate] = useState("");
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
                 />
+                <ListOfTravels/>
             </div> 
        </div>
     
