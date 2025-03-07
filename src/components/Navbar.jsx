@@ -1,6 +1,7 @@
 import React from "react";
 import { useState} from "react";
 import"./Navbar.css";
+import Lougout from "./Logout";
 
 function Navbar(){
 
@@ -9,13 +10,11 @@ function Navbar(){
     <span>CityHopper</span>
     <span>About us</span>
     <span>Contact us</span>
+    <Lougout/>
+    
 
     </div>
-    <div className="searchbar">
-        <form role = "search" >
-        </form>
-    </div>
-    
+ 
     </>
 }
 
