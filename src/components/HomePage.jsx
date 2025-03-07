@@ -3,11 +3,12 @@ import { useState} from "react";
 import "./HomePage.css";
 import ListOfTravels from './ListOfTravels';
 
+
 function HomePage(){
 const [search, setSearch] = useState("");
 const [searchto, setSearchto] = useState("");
 const [date, setDate] = useState("");
-
+const [travelArr, setTravelArr] = useState([]);
 
     return(
      <div className="container">
@@ -34,6 +35,7 @@ const [date, setDate] = useState("");
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
                 />
+
                 <ListOfTravels/>
             </div> 
        </div>

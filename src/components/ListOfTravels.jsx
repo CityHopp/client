@@ -1,7 +1,8 @@
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
+import CreateTravel from "./CreateTravel"
 
 export default function ListOfTravels() {
   const [travelArr, setTravelArr] = useState([]);
@@ -24,6 +25,7 @@ export default function ListOfTravels() {
 
   return (
     <div>
+              <CreateTravel setNewTravel={setTravelArr} />
       {error && <div className="error">{error}</div>}
       {travelArr.map((element) => (
         <div key={element._id}>
@@ -44,6 +46,9 @@ export default function ListOfTravels() {
 
           <Link to={`/travels/${element._id}`}>
             <button>Show Travel Detail</button>
+          </Link>
+          <Link to={`/request/${element._id}`}>
+            <button>Request a seat</button>
           </Link>
         </div>
       ))}

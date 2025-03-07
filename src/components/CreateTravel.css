@@ -1,0 +1,41 @@
+#addForm{
+    border: 3px solid rgb(0, 0, 0); 
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #34643c;
+    padding: 20px ;
+    margin: 2rem
+}
+
+#addForm h2{
+    color: #ffffff;
+}
+
+#addForm label{
+    display: flex;
+    justify-content: space-around;
+    /* border: 3px solid green; */
+    width:100%;
+    max-width: 100%;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+#addForm input, select, textarea{
+    /* width: 50%; */
+    max-width: 60%;
+    min-width: 50%;
+    min-height: 20px;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+    margin-left: -0.1rem;
+}
+
+#addForm button{
+    max-width: 30%;
+}
