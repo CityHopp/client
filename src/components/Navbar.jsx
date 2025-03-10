@@ -11,8 +11,6 @@ function Navbar(){
     <span>About us</span>
     <span>Contact us</span>
     <Lougout/>
-    
-
     </div>
  
     </>

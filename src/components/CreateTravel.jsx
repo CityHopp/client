@@ -37,9 +37,8 @@ export default function AddNewTravel({ setNewTravel }) {
 
     axios
       .post(
-        "http://your-backend-url.com/travels", // Replace with your actual API endpoint
-        newTravel
-      )
+        "http://localhost:5005/travels", 
+        newTravel)
       .then((response) => {
         console.log("Travel created successfully", response);
       })
@@ -47,7 +46,6 @@ export default function AddNewTravel({ setNewTravel }) {
         console.log("Error", error);
       });
 
-    // Reset form after submission
     setFormData({
       createdBy: "",
       destination: "",
