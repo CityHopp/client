@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; // Added for redirect
-import "../pages/SignUp.css";
+import { useNavigate } from "react-router-dom"; 
+import "../pages/SignUp.css"; 
 
 const Signup = () => {
   const [data, setData] = useState({
@@ -13,6 +13,7 @@ const Signup = () => {
   const [error, setError] = useState(""); 
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate(); 
+
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
@@ -27,7 +28,7 @@ const Signup = () => {
       .then((response) => {
         console.log("Signup successful:", response.data);
         setLoading(false); 
-        navigate("/login");
+        navigate("/login"); // Redirect to login page after successful signup
       })
       .catch((error) => {
         setLoading(false); 
@@ -42,35 +43,41 @@ const Signup = () => {
         <h2>Sign Up</h2>
         {error && <div className="error-message">{error}</div>}
         <form onSubmit={handleSubmit}>
-          <label>Your Name:</label>
-          <input
-            type="text"
-            name="name"
-            placeholder="👤 Enter your first name"
-            value={data.name}
-            onChange={handleChange}
-            required
-          />
+          <div className="form-group">
+            <label>Your Name:</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="👤 Enter your first name"
+              value={data.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-          <label>Email:</label>
-          <input
-            type="email"
-            name="email"
-            placeholder="📧 Enter your email"
-            value={data.email}
-            onChange={handleChange}
-            required
-          />
+          <div className="form-group">
+            <label>Email:</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="📧 Enter your email"
+              value={data.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-          <label>Password:</label>
-          <input
-            type="password"
-            name="password"
-            placeholder="🔒 Create a password"
-            value={data.password}
-            onChange={handleChange}
-            required
-          />
+          <div className="form-group">
+            <label>Password:</label>
+            <input
+              type="password"
+              name="password"
+              placeholder="🔒 Create a password"
+              value={data.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
           <button type="submit" disabled={loading}>
             {loading ? "Signing Up..." : "Sign Up"}

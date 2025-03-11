@@ -5,13 +5,16 @@ import Lougout from "./Logout";
 
 function Navbar(){
 
-    return <>
-    <div className="navbar">
-    <span>CityHopper</span>
-    <span>About us</span>
-    <span>Contact us</span>
+ return <>
+    <header className="header">
+      <a className="logo" href="/">CityHopper</a>
+      <nav className ="navbar">
+    <a href="/travels">Create Travel</a>
+    <a href="/">About us</a>
+
     <Lougout/>
-    </div>
+        </nav>
+    </header>
  
     </>
 }

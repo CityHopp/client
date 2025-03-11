@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import CreateTravel from "./CreateTravel";
 import "../components/ListOfTravels.css";
 
 export default function ListOfTravels() {
@@ -44,8 +43,8 @@ export default function ListOfTravels() {
 
   return (
     <div>
-      <CreateTravel setNewTravel={setTravelArr} />
-
+    <div className="wrap">
+     </div>
       <div className="search-container">
         <input
           type="text"

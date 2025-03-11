@@ -1,1 +1,156 @@
-
+.homepage-container {
+    font-family: "Poppins", Arial, sans-serif;
+    color: #333;
+  }
+  
+  /* 🌍 Hero Section */
+  .hero-section {
+    width: 100vw;
+    height: 50vh;
+    position: relative;
+  }
+  
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* ℹ️ Info Sections */
+  .info-section {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    margin: 20px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .info-section h2 {
+    font-size: 2rem;
+    color: #2d5fff;
+    margin-bottom: 15px;
+  }
+  
+  .info-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .info-section:nth-child(even) {
+    background-color: #eef3f7;
+  }
+  
+  /* 🔹 Travel Form Section */
+  .travel-form-container {
+    background: linear-gradient(135deg, #2d5fff, #5178f9);
+    padding: 50px 20px;
+    border-radius: 12px;
+    color: white;
+    text-align: center;
+    margin: 40px auto;
+    max-width: 700px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .travel-form-container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .travel-form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .travel-form-container input,
+  .travel-form-container textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .travel-form-container input:focus,
+  .travel-form-container textarea:focus {
+    outline: 2px solid #ffffff;
+  }
+  
+  .travel-form-container button {
+    background-color: white;
+    color: #2d5fff;
+    font-size: 1rem;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .travel-form-container button:hover {
+    background-color: #ffffffc9;
+    transform: scale(1.05);
+  }
+  
+  .security {
+    background-image: url("src/assets/images/friends.avif");
+    background-size: cover;
+    background-position: center;
+    padding: 40px 20px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 800px;
+    height: 400px;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .security p {
+    padding: 10rem 5rem;
+    color: whitesmoke;
+    font-size: 1.3rem;
+    text-shadow: 1px 1px 2px black;
+  }
+  
+  @media (max-width: 768px) {
+    .info-section h2 {
+      font-size: 1.6rem;
+    }
+  
+    .info-section p {
+      font-size: 1rem;
+    }
+  
+    .travel-form-container {
+      padding: 30px 15px;
+    }
+  
+    .travel-form-container h2 {
+      font-size: 1.6rem;
+    }
+  
+    .travel-form-container input,
+    .travel-form-container textarea {
+      font-size: 0.9rem;
+    }
+  
+    .travel-form-container button {
+      font-size: 0.9rem;
+    }
+  
+    .security p {
+      padding: 6rem 3rem;
+      font-size: 1.1rem;
+    }
+    .security h2{
+        color:whitesmoke;
+        text-shadow: 1px 1px 2px black;
+    }
+  }
+  
