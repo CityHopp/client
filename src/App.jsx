@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import {useState} from "react";
 import './App.css';
 import Navbar from './components/Navbar';
 import HomePage from './components/HomePage';
@@ -6,7 +7,8 @@ import ListOfTravels from './components/ListOfTravels';
 import Signin from './pages/Signin';
 import Signup from './pages/Signup';
 import TravelDetail from './pages/TravelDetails';
-import Request from './components/Request'
+import CreateTravel from './components/CreateTravel';
+import { Component } from "react";
 function App() {
   return (
     <>
@@ -17,7 +19,7 @@ function App() {
         <Route path="/travels/:travelsId" element={<TravelDetail />} />
         <Route path="/login" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/travels/request/:travelsId" element={<Request />} />
+        <Route path="/travels" element={<CreateTravel/>}/>
       </Routes>
     </>
   );
