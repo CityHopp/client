@@ -1,53 +1,55 @@
-/* Container */
-.main-container {
+/* Signup Page Styles */
+.signup-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f0f4f7;
+  background: linear-gradient(to right, #d0e1ff, #a3c4ff, #6b9cff);
 }
 
-/* Form box */
-.signup-container {
+.signup-box {
   background-color: #ffffff;
   padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   width: 100%;
   max-width: 400px;
   text-align: center;
 }
 
-/* Title */
-.signup-container h2 {
-  font-size: 2rem;
-  color: #333;
+.signup-box h2 {
+  font-size: 1.8rem;
+  color: #2a5db0;
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
-/* Error message */
 .error-message {
   color: red;
   font-size: 0.9rem;
   margin-bottom: 10px;
 }
 
-/* Form fields */
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   text-align: left;
 }
 
 .form-group label {
   font-size: 1rem;
   color: #333;
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   margin-bottom: 5px;
 }
 
 .form-group input {
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 6px;
@@ -56,16 +58,15 @@
 }
 
 .form-group input:focus {
-  border-color: #5178f9;
+  border-color: #2a5db0;
   outline: none;
   background-color: #fff;
 }
 
-/* Submit button */
-button {
+.signup-btn {
   width: 100%;
-  padding: 14px;
-  background-color: #5178f9;
+  padding: 12px;
+  background-color: #2a5db0;
   color: white;
   border: none;
   border-radius: 6px;
@@ -74,27 +75,35 @@ button {
   transition: background-color 0.3s;
 }
 
-button:hover {
-  background-color: #4059d2;
+.signup-btn:hover {
+  background-color: #1d4e89;
 }
 
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+p {
+  margin-top: 15px;
 }
 
-/* Mobile responsiveness */
+p a {
+  color: #2a5db0;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 768px) {
-  .signup-container {
+  .signup-box {
     width: 90%;
     padding: 20px;
   }
 
-  .signup-container h2 {
-    font-size: 1.7rem;
+  .signup-box h2 {
+    font-size: 1.5rem;
   }
 
-  button {
+  .signup-btn {
     font-size: 1rem;
   }
 }

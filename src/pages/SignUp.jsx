@@ -1,91 +1,96 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; 
-import "../pages/SignUp.css"; 
+import { FaEnvelope, FaLock, FaUserPlus, FaUser } from "react-icons/fa";
+import "./Signup.css"; 
 
-const Signup = () => {
-  const [data, setData] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
+const API_URL = "http://localhost:5005";
 
-  const [error, setError] = useState(""); 
+function Signup() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [errorMessage, setErrorMessage] = useState(undefined);
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate(); 
 
-  const handleChange = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
-  };
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleEmail = (e) => setEmail(e.target.value);
+  const handlePassword = (e) => setPassword(e.target.value);
+  const handleName = (e) => setName(e.target.value);
+
+  const handleSignupSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
 
-    setLoading(true); 
+    const requestBody = { email, password, name };
 
     axios
-      .post("http://localhost:5005/auth/signup", data)
-      .then((response) => {
-        console.log("Signup successful:", response.data);
-        setLoading(false); 
-        navigate("/login"); // Redirect to login page after successful signup
+      .post(`${API_URL}/auth/signup`, requestBody)
+      .then(() => {
+        setLoading(false);
+        navigate("/login");
       })
       .catch((error) => {
-        setLoading(false); 
-        console.error("Error signing up", error);
-        setError("Signup failed. Please try again."); 
+        setLoading(false);
+        const errorDescription = error.response?.data?.message || "Signup failed. Please try again.";
+        setErrorMessage(errorDescription);
       });
   };
 
   return (
-    <div className="main-container">
-      <div className="signup-container">
-        <h2>Sign Up</h2>
-        {error && <div className="error-message">{error}</div>}
-        <form onSubmit={handleSubmit}>
+    <div className="signup-container">
+      <div className="signup-box">
+        <h2><FaUserPlus /> Sign Up</h2>
+
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+
+        <form onSubmit={handleSignupSubmit}>
           <div className="form-group">
-            <label>Your Name:</label>
-            <input
+            <label><FaUser /> Name:</label>
+            <input 
               type="text"
               name="name"
-              placeholder="👤 Enter your first name"
-              value={data.name}
-              onChange={handleChange}
+              placeholder="Enter your full name"
+              value={name}
+              onChange={handleName}
               required
             />
           </div>
 
           <div className="form-group">
-            <label>Email:</label>
-            <input
+            <label><FaEnvelope /> Email:</label>
+            <input 
               type="email"
               name="email"
-              placeholder="📧 Enter your email"
-              value={data.email}
-              onChange={handleChange}
+              placeholder="Enter your email"
+              value={email}
+              onChange={handleEmail}
               required
             />
           </div>
 
           <div className="form-group">
-            <label>Password:</label>
-            <input
+            <label><FaLock /> Password:</label>
+            <input 
               type="password"
               name="password"
-              placeholder="🔒 Create a password"
-              value={data.password}
-              onChange={handleChange}
+              placeholder="Create a password"
+              value={password}
+              onChange={handlePassword}
               required
             />
           </div>
 
-          <button type="submit" disabled={loading}>
+          <button type="submit" className="signup-btn" disabled={loading}>
             {loading ? "Signing Up..." : "Sign Up"}
           </button>
         </form>
+
+        <p>Already have an account? <Link to="/login">Login</Link></p>
       </div>
     </div>
   );
-};
+}
 
 export default Signup;

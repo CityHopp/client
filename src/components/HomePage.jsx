@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./HomePage.css";
 
 function HomePage() {
@@ -34,6 +35,9 @@ function HomePage() {
           Booking a ride has never been easier! Thanks to our simple app powered
           by great technology, you can book a ride close to you in just minutes.
         </p>
+        <Link to ="/travelslist">
+         <button>find your trip!</button>
+         </Link>
       </section>
 
       <section className="security">

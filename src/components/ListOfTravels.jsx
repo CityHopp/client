@@ -86,7 +86,7 @@ export default function ListOfTravels() {
             </ul>
 
             <Link to={`/travels/${element._id}`}>
-              <button>Show Travel Detail</button>
+              <button>Travel Details</button>
             </Link>
             <Link to={`/request/${element._id}`}>
               <button>Request a seat</button>

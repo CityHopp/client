@@ -1,80 +1,96 @@
-#addForm {
-  border: 3px solid rgb(0, 0, 0);
-  width: 600px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-position: center;
-  padding: 20px;
-  margin-top: 5rem;
-  border-radius: 10px;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+.form-container {
+  max-width: 700px;
+  margin: auto;
+  background: #f4f4f9;
+  padding: 50px 25px;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-#addForm h2 {
-  color: rgb(3, 27, 99);
-  text-align: center;
-  margin-bottom: 20px;
+.form-container h2 {
+  color: #2d4ddb;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+#addForm {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .form-group {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: 15px;
+  width: 48%;
 }
 
-#addForm label {
+.form-group label {
   flex: 1;
-  max-width: 40%; /* Makes label width flexible */
   font-weight: bold;
-  color: rgb(3, 27, 99);
+  color: #2d4ddb;
+  font-size: 0.9rem;
   text-align: right;
-  padding-right: 10px;
-  white-space: nowrap; /* Ensures text stays in one line */
+  padding-right: 8px;
 }
 
-#addForm input,
-#addForm select,
-#addForm textarea {
+.form-group input,
+.form-group textarea {
   flex: 2;
-  width: 55%;
-  min-height: 35px;
-  padding: 8px;
+  padding: 5px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
+  border-radius: 4px;
+  font-size: 0.9rem;
 }
-
+textarea {
+  min-height: 50px;
+  resize: none;
+}
 .checkbox-group {
+  width: 100%;
   display: flex;
-  align-items: center;
+  justify-content: space-between;
 }
 
 .checkbox-group label {
-  text-align: right;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  gap: 5px;
 }
-
-.checkbox-group input {
-  width: auto;
-  margin-left: 10px;
-}
-
-#addForm button {
-  width: 50%;
-  padding: 10px;
-  background-color: white;
-  color: black;
-  border: 2px solid #5178f9;
-  cursor: pointer;
-  font-weight: bold;
-  border-radius: 5px;
-  margin-top: 10px;
-  transition: all 0.3s ease-in-out;
-}
-
-#addForm button:hover {
-  background-color: #5178f9;
+button {
+  width: 30%;
+  background: #2d4ddb;
   color: white;
+  font-size: 0.9rem;
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  margin: auto;
+}
+
+button:hover {
+  background: #1a2eb8;
+}
+@media (max-width: 768px) {
+  .form-container {
+    width: 90%;
+    padding: 10px 15px;
+  }
+
+  #addForm {
+    flex-direction: column;
+  }
+
+  .form-group {
+    width: 100%;
+  }
+
+  button {
+    width: 50%;
+  }
 }

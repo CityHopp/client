@@ -3,7 +3,6 @@
     color: #333;
   }
   
-  /* 🌍 Hero Section */
   .hero-section {
     width: 100vw;
     height: 50vh;
@@ -16,7 +15,6 @@
     object-fit: cover;
   }
   
-  /* ℹ️ Info Sections */
   .info-section {
     padding: 40px 20px;
     text-align: center;
@@ -44,7 +42,6 @@
     background-color: #eef3f7;
   }
   
-  /* 🔹 Travel Form Section */
   .travel-form-container {
     background: linear-gradient(135deg, #2d5fff, #5178f9);
     padding: 50px 20px;
@@ -70,11 +67,11 @@
   .travel-form-container input,
   .travel-form-container textarea {
     width: 100%;
-    padding: 12px;
+    padding: 5px;
     border-radius: 8px;
     border: none;
     font-size: 1rem;
-    color: #333;
+    color: #ffffff;
   }
   
   .travel-form-container input:focus,
