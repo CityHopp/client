@@ -8,7 +8,9 @@ import Signup from './pages/SignUp';
 import TravelDetail from './pages/TravelDetails';
 import CreateTravel from './components/CreateTravel';
 import Profile from './pages/Profile';
+import Request from './components/Request'; // Import the Request component
 import { Component } from "react";
+
 function App() {
   return (
     <>
@@ -16,13 +18,17 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/travelslist" element={<ListOfTravels />} />
-        <Route path="/travels/:travelsId" element={<TravelDetail />} />
+        <Route path="/travelslist/:travelsId" element={<TravelDetail />} />
         <Route path="/login" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/profile" element={<Profile/>}/>
-        <Route path="/travels" element={<CreateTravel/>}/>
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/travels" element={<CreateTravel />} />
+        
+        {/* Define the route for creating a request, passing the travelsId */}
+        <Route path="/request/:travelsId" element={<Request />} /> 
       </Routes>
     </>
   );
 }
+
 export default App;

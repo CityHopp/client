@@ -20,7 +20,7 @@ function Navbar() {
           {isLoggedIn && (
             <>
               <Link to="/travelslist">
-                <button>Projects</button>
+                <button>Find a travel</button>
               </Link>
               <button>Logout</button>
             </>

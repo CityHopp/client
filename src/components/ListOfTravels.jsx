@@ -71,7 +71,7 @@ export default function ListOfTravels() {
                 <strong>Price:</strong> {element.price}
               </li>
             </ul>
-            <Link to={`/travels/${element._id}`}>
+            <Link to={`/travelslist/${element._id}`}>
               <button>Travel Details</button>
             </Link>
             <Link to={`/request/${element._id}`}>

@@ -1,24 +1,28 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+
 export default function TravelDetail() {
   const { travelsId } = useParams();
   const navigate = useNavigate();
   const [travel, setTravel] = useState(null);
+
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_API_URL}/travels ${travelsId}`)
+      .get(`${import.meta.env.VITE_API_URL}/travels/${travelsId}`)
       .then((response) => {
         setTravel(response.data);
       })
       .catch((error) => {
         console.error("Error fetching travel data:", error);
-        navigate("/");
+        // navigate("/"); // Redirect to home if error occurs
       });
   }, [travelsId, navigate]);
+
   if (!travel) {
     return <div>Loading...</div>;
   }
+
   return (
     <div key={travel._id} className="home">
       <div className="travel" style={{ width: "60%" }}>
@@ -32,7 +36,8 @@ export default function TravelDetail() {
           <Link to="/">
             <button>Back</button>
           </Link>
-          <Link to={`/travels/request/${travel._id}`}>
+
+          <Link to={`/request/${travel._id}`}>
             <button>Make a request</button>
           </Link>
         </ul>

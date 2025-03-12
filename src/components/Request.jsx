@@ -1,18 +1,15 @@
 import { useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 export default function Request() {
-  const [message, setMessage] = useState("");
-
-  const { travelsId } = useParams();
-
-  console.log("Travel ID:", travelsId);
-
+  const { travelsId } = useParams(); // Grab the travelsId from the URL params
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    for: travelsId,
+    for: travelsId, // Set the 'for' field to the travelsId
     message: "Hey wanna city hop together",
   });
+  const [message, setMessage] = useState("");
 
   const handleChange = (event) => {
     const { value, name } = event.target;
@@ -25,26 +22,29 @@ export default function Request() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const newRequest = { ...formData };
-    const storedToken = localStorage.getItem('authToken');
-    console.log(newRequest);
+    const storedToken = localStorage.getItem("authToken"); // Get token from localStorage
 
+    // Make a POST request to create a new request
     axios
       .post(
-        `${import.meta.env.VITE_API_URL}`, 
+        `${import.meta.env.VITE_API_URL}/requests`, // API endpoint for creating a request
         newRequest,
-        { headers: { Authorization: `Bearer ${storedToken}` } }
+        { headers: { Authorization: `Bearer ${storedToken}` } } // Add the token to the header
       )
       .then((response) => {
-        console.log("Request submitted successfully", response);
         setMessage("Request submitted successfully");
+        // Optionally, navigate to another page or show a success message
+        navigate(`/travelslist/${travelsId}`);
       })
       .catch((error) => {
-        console.error("Error submitting request", error);
+        console.error("Error submitting request:", error);
+        setMessage("Error submitting the request, please try again.");
       });
 
+    // Reset the form data after submitting
     setFormData({
       message: "Hey wanna city hop together",
-      status: "pending",
+      for: travelsId,
     });
   };
 

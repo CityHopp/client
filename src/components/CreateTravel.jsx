@@ -1,10 +1,14 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import "./CreateTravel.css";
+import { useState, useEffect } from "react"; 
+import { Link } from "react-router-dom"; 
+import axios from "axios"; 
+import "./CreateTravel.css"; 
+import { useAuth } from "../context/auth.context"; 
+
 export default function CreateTravel() {
+  const { user } = useAuth(); // Get user from context
+  console.log(user);
+  
   const [formData, setFormData] = useState({
-    createdBy: "",
     destination: "",
     startingCity: "",
     departingTime: "",
@@ -16,7 +20,19 @@ export default function CreateTravel() {
     stops: "",
     price: "",
     description: "",
+    createdBy: "", // Add createdBy field to formData
   });
+
+  // Update createdBy in formData if user is available
+  useEffect(() => {
+    if (user && user._id) { // Ensure user has _id
+      setFormData((prevData) => ({
+        ...prevData,
+        createdBy: user._id, // Use _id from the user object
+      }));
+    }
+  }, [user]); // Dependency on user
+
   const handleChange = (event) => {
     const { name, type, value, checked } = event.target;
     setFormData((prevData) => ({
@@ -24,8 +40,15 @@ export default function CreateTravel() {
       [name]: type === "checkbox" ? checked : value,
     }));
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    // Ensure user ID is added to formData before submission
+    if (!formData.createdBy) {
+      return console.log("User not logged in or ID not available");
+    }
+
     axios
       .post(`${import.meta.env.VITE_API_URL}/travels`, formData)
       .then((response) => {
@@ -34,8 +57,9 @@ export default function CreateTravel() {
       .catch((error) => {
         console.log("Error", error);
       });
+
+    // Reset the form data after submission
     setFormData({
-      createdBy: "",
       destination: "",
       startingCity: "",
       departingTime: "",
@@ -47,8 +71,14 @@ export default function CreateTravel() {
       stops: "",
       price: "",
       description: "",
+      createdBy: "", // Reset createdBy to avoid conflicts
     });
   };
+
+  if (!user) {
+    return <div>Loading...</div>; // or you can show a message to tell the user to log in
+  }
+
   return (
     <div className="form-container">
       <h2>Plan Your Travel</h2>
@@ -162,9 +192,9 @@ export default function CreateTravel() {
             placeholder="Describe the trip"
           />
         </div>
-          <Link to="/travellist"/>
+        <Link to="/travel" />
         <button type="submit">Create Travel</button>
-          <Link/>
+        <Link />
       </form>
     </div>
   );
