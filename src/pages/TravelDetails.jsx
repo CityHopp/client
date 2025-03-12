@@ -10,7 +10,7 @@ export default function TravelDetail() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5005/travels/${travelsId}`)
+      .get(`${import.meta.env.VITE_API_URL}/travels ${travelsId}`)
       .then((response) => {
         setTravel(response.data);
       })

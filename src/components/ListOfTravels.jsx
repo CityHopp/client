@@ -14,7 +14,7 @@ export default function ListOfTravels() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5005/travels")
+      .get(`${import.meta.env.VITE_API_URL}/travels`)
       .then((response) => {
         setTravelArr(response.data);
         setFilteredTravels(response.data);
@@ -43,8 +43,6 @@ export default function ListOfTravels() {
 
   return (
     <div>
-    <div className="wrap">
-     </div>
       <div className="search-container">
         <input
           type="text"

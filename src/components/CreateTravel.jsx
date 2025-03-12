@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import "./CreateTravel.css";
 
-export default function AddNewTravel() {
+export default function CreateTravel() {
   const [formData, setFormData] = useState({
     createdBy: "",
     destination: "",
@@ -30,7 +30,7 @@ export default function AddNewTravel() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:5005/travels", formData)
+      .post(`http://localhost:5005/travels`, formData)
       .then((response) => {
         console.log("Travel created successfully", response);
       })

@@ -5,7 +5,6 @@ import { AuthContext } from "../context/auth.context";
 import "./Signin.css"; 
 import { FaEnvelope, FaLock, FaSignInAlt } from "react-icons/fa"; // Import icons
 
-const API_URL = "http://localhost:5005";
 
 function Signin() {
   const [email, setEmail] = useState("");
@@ -23,7 +22,7 @@ function Signin() {
     const requestBody = { email, password };
 
     axios
-      .post(`${API_URL}/auth/login`, requestBody)
+      .post(`${import.meta.env.VITE_API_URL}/auth/login`, requestBody)
       .then((response) => {
         console.log("JWT token", response.data.authToken);
         storeToken(response.data.authToken);
