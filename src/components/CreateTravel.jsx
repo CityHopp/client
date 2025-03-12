@@ -30,7 +30,7 @@ export default function CreateTravel() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post(`http://localhost:5005/travels`, formData)
+      .post(`${import.meta.env.VITE_API_URL}`, formData)
       .then((response) => {
         console.log("Travel created successfully", response);
       })

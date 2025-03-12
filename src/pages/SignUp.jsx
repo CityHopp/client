@@ -4,7 +4,7 @@ import axios from "axios";
 import { FaEnvelope, FaLock, FaUserPlus, FaUser } from "react-icons/fa";
 import "./Signup.css"; 
 
-const API_URL = "http://localhost:5005";
+
 
 function Signup() {
   const [email, setEmail] = useState("");
@@ -26,7 +26,7 @@ function Signup() {
     const requestBody = { email, password, name };
 
     axios
-      .post(`${API_URL}/auth/signup`, requestBody)
+      .post(`${import.meta.env.VITE_API_URL}/auth/signup`, requestBody)
       .then(() => {
         setLoading(false);
         navigate("/login");

@@ -30,7 +30,7 @@ export default function Request() {
 
     axios
       .post(
-        "http://localhost:5005/request", 
+        `${import.meta.env.VITE_API_URL}`, 
         newRequest,
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )

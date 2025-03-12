@@ -15,7 +15,7 @@ export default function Profile() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5005/travels")
+      .get(`${import.meta.env.VITE_API_URL}`)
       .then((response) => {
         setTravelArr(response.data);
         const userTravels = response.data.filter((trip) => trip.userId === user._id);
