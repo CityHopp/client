@@ -1,25 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useAuth } from "../context/auth.context"; // Import the useAuth hook
+import { useAuth } from "../context/auth.context"; 
 import axios from "axios";
 
 export default function Profile() {
-  const { user, isLoading } = useAuth(); // Get the user and loading state from AuthContext
+  const { user, isLoading } = useAuth(); 
 
-  const [travelArr, setTravelArr] = useState([]); // To store all travel data
-  const [filteredTravels, setFilteredTravels] = useState([]); // To store filtered travel data
-  const [searchFrom, setSearchFrom] = useState(""); // Starting city search query
-  const [searchTo, setSearchTo] = useState(""); // Destination search query
-  const [searchDate, setSearchDate] = useState(""); // Date search query
-  const [error, setError] = useState(""); // To store any error message
+  const [travelArr, setTravelArr] = useState([]); 
+  const [filteredTravels, setFilteredTravels] = useState([]); 
+  const [searchFrom, setSearchFrom] = useState(""); 
+  const [searchTo, setSearchTo] = useState(""); 
+  const [searchDate, setSearchDate] = useState(""); 
+  const [error, setError] = useState(""); 
 
   useEffect(() => {
-    // Fetch travel data
     axios
       .get("http://localhost:5005/travels")
       .then((response) => {
         setTravelArr(response.data);
-        // Filter travels posted by the current user
         const userTravels = response.data.filter((trip) => trip.userId === user._id);
         setFilteredTravels(userTravels);
       })
@@ -27,10 +25,9 @@ export default function Profile() {
         console.error("Error fetching travel data:", error);
         setError("There was an error fetching the travel data. Please try again later.");
       });
-  }, [user]); // The effect runs again whenever the user object changes
+  }, [user]); 
 
   useEffect(() => {
-    // Filter travels based on search inputs
     const timer = setTimeout(() => {
       const filtered = travelArr.filter(
         (trip) =>
@@ -45,11 +42,11 @@ export default function Profile() {
   }, [searchFrom, searchTo, searchDate, travelArr]);
 
   if (isLoading) {
-    return <div>Loading...</div>; // Show loading while the user is being authenticated
+    return <div>Loading...</div>; 
   }
 
   if (!user) {
-    return <div>User is not logged in</div>; // Show a message if no user is logged in
+    return <div>User is not logged in</div>; 
   }
 
   return (
@@ -89,8 +86,6 @@ export default function Profile() {
       ) : (
         <p>No matching trips found.</p>
       )}
-
-      {/* User Profile Section */}
       <div className="home">
         <div className="travel" style={{ width: "60%" }}>
           <ul className="flexul">

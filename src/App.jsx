@@ -7,7 +7,7 @@ import Signin from './pages/Signin';
 import Signup from './pages/SignUp';
 import TravelDetail from './pages/TravelDetails';
 import CreateTravel from './components/CreateTravel';
-import Profile from "./pages/profile";
+import Profile from './pages/Profile_temp';
 import { Component } from "react";
 function App() {
   return (
