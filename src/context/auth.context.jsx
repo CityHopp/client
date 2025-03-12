@@ -1,8 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+
 const API_URL = "http://localhost:5005";
 
+// First, define the AuthContext
 const AuthContext = React.createContext();
+
+// Then define the custom hook that consumes the context
+const useAuth = () => {
+  return useContext(AuthContext); 
+};
 
 function AuthProviderWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -12,8 +19,8 @@ function AuthProviderWrapper(props) {
   const storeToken = (token) => { 
     localStorage.setItem('authToken', token);
   }
-  const authenticateUser = () => {   
 
+  const authenticateUser = () => {   
     const storedToken = localStorage.getItem('authToken');
     
     if (storedToken) {
@@ -39,18 +46,14 @@ function AuthProviderWrapper(props) {
     }   
   }
     
-  const removeToken = () => {                
-
+  const removeToken = () => {                 
     localStorage.removeItem("authToken");
   }
  
   const logOutUser = () => {                 
-   
     removeToken();
-   
     authenticateUser();
   }  
- 
   
   useEffect(() => {  
     authenticateUser();                                   
@@ -68,7 +71,7 @@ function AuthProviderWrapper(props) {
     >
       {props.children}
     </AuthContext.Provider>
-  )
+  );
 }
 
-export { AuthProviderWrapper, AuthContext };
+export { AuthProviderWrapper, AuthContext, useAuth };
