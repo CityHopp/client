@@ -2,16 +2,13 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "../components/ListOfTravels.css";
-
 export default function ListOfTravels() {
   const [travelArr, setTravelArr] = useState([]);
-  const [filteredTravels, setFilteredTravels] = useState([]); 
+  const [filteredTravels, setFilteredTravels] = useState([]);
   const [error, setError] = useState(null);
-
   const [searchFrom, setSearchFrom] = useState("");
   const [searchTo, setSearchTo] = useState("");
   const [searchDate, setSearchDate] = useState("");
-
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_API_URL}/travels`)
@@ -26,21 +23,18 @@ export default function ListOfTravels() {
         );
       });
   }, []);
-
   useEffect(() => {
     const timer = setTimeout(() => {
       const filtered = travelArr.filter(
         (trip) =>
           trip.startingCity.toLowerCase().includes(searchFrom.toLowerCase()) &&
           trip.destination.toLowerCase().includes(searchTo.toLowerCase()) &&
-          (searchDate === "" || trip.date === searchDate)
+          (searchDate === "" || trip.departingTime === searchDate)
       );
       setFilteredTravels(filtered);
     }, 300);
-
     return () => clearTimeout(timer);
   }, [searchFrom, searchTo, searchDate, travelArr]);
-
   return (
     <div>
       <div className="search-container">
@@ -62,9 +56,7 @@ export default function ListOfTravels() {
           onChange={(e) => setSearchDate(e.target.value)}
         />
       </div>
-
       {error && <div className="error">{error}</div>}
-
       {filteredTravels.length > 0 ? (
         filteredTravels.map((element) => (
           <div key={element._id}>
@@ -76,13 +68,9 @@ export default function ListOfTravels() {
                 <strong>Starting Point:</strong> {element.startingCity}
               </li>
               <li>
-                <strong>Date:</strong> {element.date}
-              </li>
-              <li>
                 <strong>Price:</strong> {element.price}
               </li>
             </ul>
-
             <Link to={`/travels/${element._id}`}>
               <button>Travel Details</button>
             </Link>

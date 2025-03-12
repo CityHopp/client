@@ -1,14 +1,13 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "./CreateTravel.css";
-
 export default function CreateTravel() {
   const [formData, setFormData] = useState({
     createdBy: "",
     destination: "",
     startingCity: "",
     departingTime: "",
-    date: "",
     breaks: "",
     petPolicy: false,
     kidPolicy: false,
@@ -18,7 +17,6 @@ export default function CreateTravel() {
     price: "",
     description: "",
   });
-
   const handleChange = (event) => {
     const { name, type, value, checked } = event.target;
     setFormData((prevData) => ({
@@ -26,24 +24,21 @@ export default function CreateTravel() {
       [name]: type === "checkbox" ? checked : value,
     }));
   };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post(`${import.meta.env.VITE_API_URL}`, formData)
+      .post(`${import.meta.env.VITE_API_URL}/travels`, formData)
       .then((response) => {
         console.log("Travel created successfully", response);
       })
       .catch((error) => {
         console.log("Error", error);
       });
-
     setFormData({
       createdBy: "",
       destination: "",
       startingCity: "",
       departingTime: "",
-      date: "",
       breaks: "",
       petPolicy: false,
       kidPolicy: false,
@@ -54,12 +49,10 @@ export default function CreateTravel() {
       description: "",
     });
   };
-
   return (
     <div className="form-container">
       <h2>Plan Your Travel</h2>
       <p>Fill out the details below and offer a ride!</p>
-
       <form id="addForm" onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Destination:</label>
@@ -72,7 +65,6 @@ export default function CreateTravel() {
             required
           />
         </div>
-
         <div className="form-group">
           <label>Starting City:</label>
           <input
@@ -84,29 +76,16 @@ export default function CreateTravel() {
             required
           />
         </div>
-
         <div className="form-group">
           <label>Departing Time:</label>
           <input
             name="departingTime"
-            type="time"
+            type="datetime-local"
             value={formData.departingTime}
             onChange={handleChange}
             required
           />
         </div>
-
-        <div className="form-group">
-          <label>Date:</label>
-          <input
-            name="date"
-            type="date"
-            value={formData.date}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
         <div className="form-group">
           <label>Number of Breaks:</label>
           <input
@@ -117,7 +96,6 @@ export default function CreateTravel() {
             required
           />
         </div>
-
         <div className="form-group checkbox-group">
           <label>Pet Friendly:</label>
           <input
@@ -127,7 +105,6 @@ export default function CreateTravel() {
             onChange={handleChange}
           />
         </div>
-
         <div className="form-group checkbox-group">
           <label>Kid Friendly:</label>
           <input
@@ -137,7 +114,6 @@ export default function CreateTravel() {
             onChange={handleChange}
           />
         </div>
-
         <div className="form-group checkbox-group">
           <label>Smoking Allowed:</label>
           <input
@@ -147,7 +123,6 @@ export default function CreateTravel() {
             onChange={handleChange}
           />
         </div>
-
         <div className="form-group checkbox-group">
           <label>Chit-Chat Allowed:</label>
           <input
@@ -157,7 +132,6 @@ export default function CreateTravel() {
             onChange={handleChange}
           />
         </div>
-
         <div className="form-group">
           <label>Stops (Comma separated):</label>
           <input
@@ -168,7 +142,6 @@ export default function CreateTravel() {
             placeholder="Enter stops (if any)"
           />
         </div>
-
         <div className="form-group">
           <label>Price:</label>
           <input
@@ -180,7 +153,6 @@ export default function CreateTravel() {
             required
           />
         </div>
-
         <div className="form-group">
           <label>Description:</label>
           <textarea
@@ -190,8 +162,9 @@ export default function CreateTravel() {
             placeholder="Describe the trip"
           />
         </div>
-
+          <Link to="/travellist"/>
         <button type="submit">Create Travel</button>
+          <Link/>
       </form>
     </div>
   );
