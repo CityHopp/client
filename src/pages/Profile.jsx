@@ -11,13 +11,12 @@ export default function Profile() {
   const [searchFrom, setSearchFrom] = useState(""); 
   const [searchTo, setSearchTo] = useState(""); 
   const [searchDate, setSearchDate] = useState(""); 
-  const [requests, setRequests] = useState([]); // New state to hold requests
+  const [requests, setRequests] = useState([]); 
   const [error, setError] = useState(""); 
 
-  // Fetch travels and requests
+
   useEffect(() => {
     if (user) {
-      // Fetch user's travels
       axios
         .get(`${import.meta.env.VITE_API_URL}/travels`)
         .then((response) => {
@@ -30,11 +29,10 @@ export default function Profile() {
           setError("There was an error fetching the travel data. Please try again later.");
         });
 
-      // Fetch requests for the user's travels
       axios
         .get(`${import.meta.env.VITE_API_URL}/requests/user/${user._id}`)
         .then((response) => {
-          setRequests(response.data); // Set the fetched requests
+          setRequests(response.data); 
         })
         .catch((error) => {
           console.error("Error fetching requests:", error);
@@ -43,7 +41,6 @@ export default function Profile() {
     }
   }, [user]); 
 
-  // Filter travels based on search
   useEffect(() => {
     const timer = setTimeout(() => {
       const filtered = travelArr.filter(

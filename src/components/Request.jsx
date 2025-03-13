@@ -3,10 +3,10 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
 export default function Request() {
-  const { travelsId } = useParams(); // Grab the travelsId from the URL params
+  const { travelsId } = useParams(); 
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    for: travelsId, // Set the 'for' field to the travelsId
+    for: travelsId,  
     message: "Hey wanna city hop together",
   });
   const [message, setMessage] = useState("");
@@ -22,18 +22,17 @@ export default function Request() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const newRequest = { ...formData };
-    const storedToken = localStorage.getItem("authToken"); // Get token from localStorage
+    const storedToken = localStorage.getItem("authToken"); 
 
-    // Make a POST request to create a new request
     axios
       .post(
-        `${import.meta.env.VITE_API_URL}/requests`, // API endpoint for creating a request
+        `${import.meta.env.VITE_API_URL}/request`,  
         newRequest,
-        { headers: { Authorization: `Bearer ${storedToken}` } } // Add the token to the header
+        { headers: { Authorization: `Bearer ${storedToken}` } }
       )
       .then((response) => {
         setMessage("Request submitted successfully");
-        // Optionally, navigate to another page or show a success message
+
         navigate(`/travelslist/${travelsId}`);
       })
       .catch((error) => {
@@ -41,7 +40,6 @@ export default function Request() {
         setMessage("Error submitting the request, please try again.");
       });
 
-    // Reset the form data after submitting
     setFormData({
       message: "Hey wanna city hop together",
       for: travelsId,
