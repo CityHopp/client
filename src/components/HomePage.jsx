@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./HomePage.css";
-import homePageImage from "/images/vecteezy_car-with-baggage-on-top-driving-desert-road_16263838.jpg";
-import friendsImage from"/images/friends.avif";
+import homePageImage from "../../public/images/car.jpg";
+import friendsImage from"../../public/images/friends.avif";
 function HomePage() {
   return (
     
