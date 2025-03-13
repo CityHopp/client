@@ -139,3 +139,41 @@ button:active {
 .dropdown button:hover {
   background: #1074ef;
 }
+@media (max-width: 480px) {
+  .header {
+    padding: 10px;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .navbar {
+    gap: 10px;
+  }
+
+  .navbar a {
+    font-size: 0.9rem;
+  }
+
+  .button, .profile-btn, .logout-btn {
+    width: 80px;
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+
+  .user-img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .dropdown {
+    top: 40px;
+    min-width: 120px;
+  }
+
+  .dropdown li {
+    font-size: 0.8rem;
+    padding: 8px 10px;
+  }
+}

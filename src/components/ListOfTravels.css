@@ -94,3 +94,32 @@ p {
   color: #777;
   margin-top: 20px;
 }
+@media (max-width: 480px) {
+  .search-container {
+    flex-direction: column;
+    padding: 20px 10px;
+  }
+
+  .search-container input {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  button {
+    width: 100%;
+    font-size: 0.9rem;
+    margin: 5px 0;
+  }
+
+  ul li {
+    padding: 5px 10px;
+  }
+
+  .error {
+    font-size: 0.9rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}

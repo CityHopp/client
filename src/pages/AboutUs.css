@@ -68,4 +68,21 @@
       max-width: 300px;
     }
   }
+  @media (max-width: 480px) {
+    .about-container {
+      padding: 20px 10px;
+    }
   
+    .about-content h1 {
+      font-size: 1.8rem;
+    }
+  
+    .about-content p {
+      font-size: 1rem;
+    }
+  
+    .card {
+      width: 100%;
+      max-width: 100%;
+    }
+  }

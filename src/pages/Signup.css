@@ -107,3 +107,27 @@ p a:hover {
     font-size: 1rem;
   }
 }
+@media (max-width: 480px) {
+  .signup-container {
+    padding: 20px;
+  }
+
+  .signup-box {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  .signup-box h2 {
+    font-size: 1.5rem;
+  }
+
+  .form-group input {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .signup-btn {
+    padding: 10px;
+    font-size: 1rem;
+  }
+}
