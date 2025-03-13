@@ -34,17 +34,7 @@ Deployment: Netlify (Frontend), Render/Heroku (Backend)
 
 # 📂 Project Structure
 
-client/
-│── src/
-│   ├── components/   -Reusable components (Navbar, Forms, etc.)
-│   ├── pages/        -Application pages (Home, Signin, Signup, etc.)
-│   ├── context/      -AuthContext for user authentication
-│   ├── assets/       -Images and static files
-│   ├── App.js        -Main App component
-│   ├── main.jsx      -Entry point
-│── public/           -Static assets
-│── .env              -Environment variables
-│── package.json      -Dependencies & scripts
+![image alt](https://github.com/CityHopp/client/blob/25a5a328aebe4188171adca65ccb241271ef3eee/readmefile-pic.png)
 
 # 🔧 Setup & Installation
 
