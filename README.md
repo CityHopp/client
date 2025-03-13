@@ -1,8 +1,8 @@
 # React + Vite
 
-##CityHopper is a web application that allows users to create and join travel plans, making city hopping easy and convenient.
+## CityHopper is a web application that allows users to create and join travel plans, making city hopping easy and convenient.
 
-#🚀 Features
+# 🚀 Features
 
 User authentication (Sign up, Login, Logout)
 
@@ -20,7 +20,7 @@ User dashboard to manage travel plans and requests
 
 Mobile-friendly design for seamless experience
 
-#🛠 Tech Stack
+# 🛠 Tech Stack
 
 Frontend: React.js, React Router, Axios
 
@@ -32,21 +32,21 @@ Styling: CSS with Light Blue & Blue Theme
 
 Deployment: Netlify (Frontend), Render/Heroku (Backend)
 
-#📂 Project Structure
+# 📂 Project Structure
 
 client/
 │── src/
-│   ├── components/   # Reusable components (Navbar, Forms, etc.)
-│   ├── pages/        # Application pages (Home, Signin, Signup, etc.)
-│   ├── context/      # AuthContext for user authentication
-│   ├── assets/       # Images and static files
-│   ├── App.js        # Main App component
-│   ├── main.jsx      # Entry point
-│── public/           # Static assets
-│── .env              # Environment variables
-│── package.json      # Dependencies & scripts
+│   ├── components/   -Reusable components (Navbar, Forms, etc.)
+│   ├── pages/        -Application pages (Home, Signin, Signup, etc.)
+│   ├── context/      -AuthContext for user authentication
+│   ├── assets/       -Images and static files
+│   ├── App.js        -Main App component
+│   ├── main.jsx      -Entry point
+│── public/           -Static assets
+│── .env              -Environment variables
+│── package.json      -Dependencies & scripts
 
-#🔧 Setup & Installation
+# 🔧 Setup & Installation
 
 Clone the repository:
 
@@ -65,7 +65,7 @@ Start the development server:
 
 npm run dev
 
-#🚀 Deployment
+# 🚀 Deployment
 
 The project is deployed on Netlify. If you encounter issues with images not loading, ensure:
 
@@ -77,7 +77,7 @@ Use absolute paths for imports in React
 
 Check Netlify build settings for asset optimization
 
-#🤝 Contributing
+# 🤝 Contributing
 
 Feel free to create your own travel! Follow these steps:
 
