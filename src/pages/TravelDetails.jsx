@@ -33,7 +33,7 @@ export default function TravelDetail() {
           <li><strong>Description:</strong> {travel.description}</li>
           <li><strong>Date:</strong> {travel.departingTime}</li>
           <br />
-          <Link to="/">
+          <Link to="/travelslist">
             <button>Back</button>
           </Link>
 
