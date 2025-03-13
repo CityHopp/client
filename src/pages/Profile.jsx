@@ -4,40 +4,28 @@ import axios from "axios";
 
 export default function Profile() {
   const { user, isLoading } = useAuth(); 
-
-  const [travelArr, setTravelArr] = useState([]); 
-  const [requests, setRequests] = useState([]); 
+  const [request, setRequest] = useState([]); 
   const [error, setError] = useState(""); 
+  const [isUpdating, setIsUpdating] = useState(false); 
 
   useEffect(() => {
-    if (user) {
+    if (user && !isLoading) { 
       axios
-        .get(`${import.meta.env.VITE_API_URL}/travels`)
+        .get(`${import.meta.env.VITE_API_URL}/request`)
         .then((response) => {
-          setTravelArr(response.data);
-          const userTravels = response.data.filter((trip) => trip.createdBy === user._id);
-          
+          const userRequest = response.data.filter(
+            (request) => request.for._id === user._id
+            
 
-          const userTravelIds = userTravels.map(travel => travel._id);
-          axios
-            .get(`${import.meta.env.VITE_API_URL}/requests/`) 
-            .then((response) => {
-              const userRequests = response.data.filter((request) =>
-                userTravelIds.includes(request.for._id) 
-              );
-              setRequests(userRequests); 
-            })
-            .catch((error) => {
-              console.error("Error fetching requests:", error);
-              setError("There was an error fetching the requests. Please try again later.");
-            });
+          );
+          setRequest(userRequest);
         })
         .catch((error) => {
-          console.error("Error fetching travel data:", error);
-          setError("There was an error fetching the travel data. Please try again later.");
+          console.error("Error fetching request:", error);
+          setError("There was an error fetching the request. Please try again later.");
         });
     }
-  }, [user]); // Re-fetch whenever the user changes
+  }, [user, isLoading]); 
 
   if (isLoading) {
     return <div>Loading...</div>; 
@@ -53,28 +41,30 @@ export default function Profile() {
 
       {error && <div className="error">{error}</div>}
 
-      <h3>Your Travel Requests</h3>
-      <div className="requests-container">
-        {requests.length > 0 ? (
-          requests.map((request) => (
+      <h3>Your Travel Request</h3>
+      <div className="request-container">
+        {request.length > 0 ? (
+          request.map((request) => (
             <div key={request._id} className="request-item">
-              <p><strong>Requester:</strong> {request.from.name}</p>
+              <p><strong>Requester:</strong> {request.from?.name || "Unknown"}</p>
               <p><strong>Message:</strong> {request.message}</p>
               <p><strong>Status:</strong> {request.status}</p>
               <button
                 onClick={() => handleRequestAction(request._id, "accepted")}
+                disabled={isUpdating}
               >
-                Accept
+                {isUpdating ? "Processing..." : "Accept"}
               </button>
               <button
                 onClick={() => handleRequestAction(request._id, "rejected")}
+                disabled={isUpdating}
               >
-                Reject
+                {isUpdating ? "Processing..." : "Reject"}
               </button>
             </div>
           ))
         ) : (
-          <p>No requests yet.</p>
+          <p>No request yet.</p>
         )}
       </div>
 
@@ -99,18 +89,33 @@ export default function Profile() {
   );
 
   function handleRequestAction(requestId, status) {
+    setIsUpdating(true);
+  
+    // Get the JWT token from localStorage or wherever it's stored
+    const storedToken = localStorage.getItem("authToken"); // Adjust this based on where you store the token
+  
     axios
-      .patch(`${import.meta.env.VITE_API_URL}/requests/${requestId}`, { status })
+      .patch(
+        `${import.meta.env.VITE_API_URL}/request/${requestId}`,
+        { status },
+        {
+          headers: {
+            Authorization: `Bearer ${storedToken}`, // Include the token in the Authorization header
+          },
+        }
+      )
       .then((response) => {
         console.log("Request updated:", response);
-        setRequests((prevRequests) =>
-          prevRequests.map((req) =>
+        setRequest((prevRequest) =>
+          prevRequest.map((req) =>
             req._id === requestId ? { ...req, status } : req
           )
         );
       })
       .catch((error) => {
         console.error("Error updating request:", error);
-      });
+        setError("There was an error updating the request. Please try again later.");
+      })
+      .finally(() => setIsUpdating(false));
   }
 }
