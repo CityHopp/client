@@ -1,172 +1,282 @@
 .homepage-container {
-    font-family: "Poppins", Arial, sans-serif;
-    color: #333;
+  font-family: "Poppins", Arial, sans-serif;
+  color: #333;
+}
+
+.hero-section {
+  width: 100vw;
+  height: 50vh;
+  position: relative;
+}
+
+.hero-section h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: darkblue;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info-section {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+  margin: 20px 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-section h2 {
+  font-size: 2rem;
+  color: #2d5fff;
+  margin-bottom: 15px;
+}
+
+.info-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.info-section:nth-child(even) {
+  background-color: #eef3f7;
+}
+
+.travel-form-container {
+  background: linear-gradient(135deg, #2d5fff, #5178f9);
+  padding: 50px 20px;
+  border-radius: 12px;
+  color: white;
+  text-align: center;
+  margin: 40px auto;
+  max-width: 700px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.travel-form-container h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.travel-form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.travel-form-container input,
+.travel-form-container textarea {
+  width: 100%;
+  padding: 5px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.travel-form-container input:focus,
+.travel-form-container textarea:focus {
+  outline: 2px solid #ffffff;
+}
+
+.travel-form-container button {
+  background-color: white;
+  color: #2d5fff;
+  font-size: 1rem;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.travel-form-container button:hover {
+  background-color: #ffffffc9;
+  transform: scale(1.05);
+}
+
+.security {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  text-align: center;
+  margin: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.security img {
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  opacity: 0.8;
+}
+
+.security p {
+  position: absolute;
+  padding: 8rem 3rem;
+  color: whitesmoke;
+  font-size: 1.3rem;
+  text-shadow: 1px 1px 2px black;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+}
+
+.security h2 {
+  position: absolute;
+  padding: 10rem 5rem;
+  color: whitesmoke;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 2px black;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Media Queries for Mobile and Tablet */
+@media (max-width: 1024px) {
+  .hero-section {
+      height: 40vh;
   }
 
-  .hero-section {
-    width: 100vw;
-    height: 50vh;
-    position: relative;
+  .hero-section h2 {
+      font-size: 2rem;
   }
-  .hero-section h2{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: darkblue;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-  }
-  
-  .hero-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .info-section {
-    padding: 40px 20px;
-    text-align: center;
-    background-color: #f9f9f9;
-    margin: 20px 0;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
+
   .info-section h2 {
-    font-size: 2rem;
-    color: #2d5fff;
-    margin-bottom: 15px;
+      font-size: 1.8rem;
   }
-  
+
   .info-section p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #666;
-    max-width: 800px;
-    margin: 0 auto;
+      font-size: 1rem;
   }
-  
-  .info-section:nth-child(even) {
-    background-color: #eef3f7;
-  }
-  
+
   .travel-form-container {
-    background: linear-gradient(135deg, #2d5fff, #5178f9);
-    padding: 50px 20px;
-    border-radius: 12px;
-    color: white;
-    text-align: center;
-    margin: 40px auto;
-    max-width: 700px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      padding: 30px 15px;
   }
-  
+
   .travel-form-container h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+      font-size: 1.6rem;
   }
-  
-  .travel-form-container form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
+
   .travel-form-container input,
   .travel-form-container textarea {
-    width: 100%;
-    padding: 5px;
-    border-radius: 8px;
-    border: none;
-    font-size: 1rem;
-    color: #ffffff;
+      font-size: 0.9rem;
   }
-  
-  .travel-form-container input:focus,
-  .travel-form-container textarea:focus {
-    outline: 2px solid #ffffff;
-  }
-  
-  .travel-form-container button {
-    background-color: white;
-    color: #2d5fff;
-    font-size: 1rem;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  .travel-form-container button:hover {
-    background-color: #ffffffc9;
-    transform: scale(1.05);
-  }
-  
-  .security {
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    border-radius: 12px;
-    text-align: center;
-    margin: auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  .security img{
-    width: 800px;
-    height: 500px;
-    opacity:0.8;
 
+  .travel-form-container button {
+      font-size: 0.9rem;
   }
-  
-  .security p {
-    position: absolute;
-    padding: 8rem 3rem;
-    color: whitesmoke;
-    font-size: 1.3rem;
-    text-shadow: 1px 1px 2px black;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+      height: 35vh;
   }
-  .security h2{
-    position: absolute;
-    padding: 10rem 5rem;
-    color: whitesmoke;
-    font-size: 1.5rem;
-    text-shadow: 1px 1px 2px black;
-    top: 10%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
+  .hero-section h2 {
+      font-size: 1.8rem;
   }
-  
-  @media (max-width: 768px) {
-    .info-section h2 {
+
+  .info-section h2 {
       font-size: 1.6rem;
-    }
-  
-    .info-section p {
+  }
+
+  .info-section p {
       font-size: 1rem;
-    }
-  
-    .travel-form-container {
-      padding: 30px 15px;
-    }
-  
-    .travel-form-container h2 {
-      font-size: 1.6rem;
-    }
-  
-    .travel-form-container input,
-    .travel-form-container textarea {
-      font-size: 0.9rem;
-    }
-  
-    .travel-form-container button {
-      font-size: 0.9rem;
-    }
-  
   }
-  
+
+  .travel-form-container {
+      padding: 25px 15px;
+      max-width: 90%;
+  }
+
+  .travel-form-container h2 {
+      font-size: 1.4rem;
+  }
+
+  .travel-form-container input,
+  .travel-form-container textarea {
+      font-size: 0.9rem;
+  }
+
+  .travel-form-container button {
+      font-size: 0.9rem;
+      padding: 10px 18px;
+  }
+
+  .security img {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+  }
+
+  .security h2 {
+      font-size: 1.3rem;
+      padding: 5rem 3rem;
+  }
+
+  .security p {
+      font-size: 1rem;
+      padding: 4rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+      height: 30vh;
+  }
+
+  .hero-section h2 {
+      font-size: 1.6rem;
+  }
+
+  .info-section h2 {
+      font-size: 1.4rem;
+  }
+
+  .info-section p {
+      font-size: 0.9rem;
+  }
+
+  .travel-form-container {
+      padding: 20px 10px;
+      max-width: 90%;
+  }
+
+  .travel-form-container h2 {
+      font-size: 1.2rem;
+  }
+
+  .travel-form-container input,
+  .travel-form-container textarea {
+      font-size: 0.85rem;
+  }
+
+  .travel-form-container button {
+      font-size: 0.85rem;
+      padding: 8px 15px;
+  }
+
+  .security h2 {
+      font-size: 1.2rem;
+      padding: 3rem 2rem;
+  }
+
+  .security p {
+      font-size: 0.9rem;
+      padding: 3rem 1.5rem;
+  }
+}
