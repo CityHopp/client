@@ -91,8 +91,8 @@ export default function Profile() {
   function handleRequestAction(requestId, status) {
     setIsUpdating(true);
   
-    // Get the JWT token from localStorage or wherever it's stored
-    const storedToken = localStorage.getItem("authToken"); // Adjust this based on where you store the token
+
+    const storedToken = localStorage.getItem("authToken"); 
   
     axios
       .patch(
@@ -100,7 +100,7 @@ export default function Profile() {
         { status },
         {
           headers: {
-            Authorization: `Bearer ${storedToken}`, // Include the token in the Authorization header
+            Authorization: `Bearer ${storedToken}`, 
           },
         }
       )
