@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import "./Signin.css"; 
-import { FaEnvelope, FaLock, FaSignInAlt } from "react-icons/fa"; // Import icons
+import { FaEnvelope, FaLock, FaSignInAlt } from "react-icons/fa";
 
 
 function Signin() {

@@ -1,22 +1,18 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext } from "react";
+import {  AuthContext } from "../context/auth.context";
+import axios from "axios";
 
 const Logout = () => {
-  const navigate = useNavigate();
+  const { isLoggedIn, logOutUser} = useContext(AuthContext); 
+  
 
-  const handleLogout = () => {
-    localStorage.removeItem("authToken");
 
-    navigate("/");
-  };
-
-  const isLoggedIn = !!localStorage.getItem("authToken");
   if (!isLoggedIn) {
     return null; 
   }
 
   return (
-    <button onClick={handleLogout} style={styles.button}>
+    <button onClick={logOutUser} style={styles.button}>
       Logout
     </button>
   );

@@ -1,48 +1,46 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import {AuthContext} from "../context/auth.context";
+import { AuthContext } from "../context/auth.context";
 import "./Navbar.css";
-import Lougout from "./Logout";
+import userIcon from "../assets/images/user.png";
 
 function Navbar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  const [dropdown, setDropdown] = useState(false);
 
   return (
-    <>
-      <header className="header">
-        <a className="logo" href="/">
-          CityHopper
-        </a>
-        <nav className="navbar">
-          <a href="/travels">Create Travel</a>
-          <a href="/aboutus">About us</a>
-          {isLoggedIn && (
-            <>
-              <Link to="/travelslist">
-                <button>Find a travel</button>
-              </Link>
-              <button>Logout</button>
-            </>
-          )}
+    <header className="header">
+      <a className="logo" href="/">CityHopper</a>
+      <nav className="navbar">
+        <Link to="/travels">Create Travel</Link>
+        <Link to="/aboutus">About us</Link>
 
-          {!isLoggedIn && (
-            <>
-              <Link to="/signup">
-                {" "}
-                <button>Sign Up</button>{" "}
-              </Link>
-              <Link to="/login">
-                {" "}
-                <button>Login</button>{" "}
-              </Link>
-            </>
-          )}
+        {!isLoggedIn && (
+          <button
+            className="user-icon"
+            onClick={() => setDropdown(!dropdown)}
+            aria-label="Toggle user menu"
+          >
+            <img src={userIcon} alt="User" className="user-img" />
+          </button>
+        )}
 
-          <Lougout />
-        </nav>
-      </header>
-    </>
+        {dropdown && !isLoggedIn && (
+          <div className="dropdown">
+            <ul>
+              <li><Link to="/signup">Sign Up</Link></li>
+              <li><Link to="/login">Sign In</Link></li>
+            </ul>
+          </div>
+        )}
+
+        {isLoggedIn && (
+          <button className="logout-btn" onClick={logOutUser}>
+            Logout
+          </button>
+        )}
+      </nav>
+    </header>
   );
 }
 
