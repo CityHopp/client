@@ -192,7 +192,7 @@ export default function CreateTravel() {
             placeholder="Describe the trip"
           />
         </div>
-        <Link to="/travel" />
+        <Link to="/travelslist"/>
         <button type="submit">Create Travel</button>
         <Link />
       </form>

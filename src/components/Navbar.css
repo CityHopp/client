@@ -38,11 +38,12 @@
 .navbar a:hover {
   color: #bfdbfe;
 }
-.button {
-  background: none;
+.button , .profile-btn, .logout-btn{
+  width:110px;
+  background: transparent;
   color: white;
   border: none;
-  padding: 10px 15px;
+  padding: 10px 10px;
   font-size: 1rem;
   border-radius: 8px;
   cursor: pointer;
@@ -51,7 +52,7 @@
 }
 
 button:hover {
-  background: #60a5fa;
+  background:#bfdbfe;
 }
 
 button:focus {

@@ -2,11 +2,20 @@
     font-family: "Poppins", Arial, sans-serif;
     color: #333;
   }
-  
+
   .hero-section {
     width: 100vw;
     height: 50vh;
     position: relative;
+  }
+  .hero-section h2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: darkblue;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
   }
   
   .hero-image {
@@ -96,23 +105,41 @@
   }
   
   .security {
-    background-image: url("src/assets/images/friends.avif");
+    position: relative;
     background-size: cover;
     background-position: center;
-    padding: 40px 20px;
     border-radius: 12px;
     text-align: center;
-    max-width: 800px;
-    height: 400px;
     margin: auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
+  .security img{
+    width: 800px;
+    height: 500px;
+    opacity:0.8;
+
+  }
   
   .security p {
-    padding: 10rem 5rem;
+    position: absolute;
+    padding: 8rem 3rem;
     color: whitesmoke;
     font-size: 1.3rem;
     text-shadow: 1px 1px 2px black;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+  }
+  .security h2{
+    position: absolute;
+    padding: 10rem 5rem;
+    color: whitesmoke;
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 2px black;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   
   @media (max-width: 768px) {
@@ -141,13 +168,5 @@
       font-size: 0.9rem;
     }
   
-    .security p {
-      padding: 6rem 3rem;
-      font-size: 1.1rem;
-    }
-    .security h2{
-        color:whitesmoke;
-        text-shadow: 1px 1px 2px black;
-    }
   }
   

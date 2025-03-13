@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import "./Navbar.css";
-import userIcon from "../assets/images/user.png";
+import userIcon from "/images/user.png";
 
 function Navbar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
@@ -10,7 +10,9 @@ function Navbar() {
 
   return (
     <header className="header">
-      <a className="logo" href="/">CityHopper</a>
+      <a className="logo" href="/">
+        CityHopper
+      </a>
       <nav className="navbar">
         <Link to="/travels">Create Travel</Link>
         <Link to="/aboutus">About us</Link>
@@ -28,10 +30,19 @@ function Navbar() {
         {dropdown && !isLoggedIn && (
           <div className="dropdown">
             <ul>
-              <li><Link to="/signup">Sign Up</Link></li>
-              <li><Link to="/login">Sign In</Link></li>
+              <li>
+                <Link to="/signup">Sign Up</Link>
+              </li>
+              <li>
+                <Link to="/login">Sign In</Link>
+              </li>
             </ul>
           </div>
+        )}
+        {isLoggedIn && (
+          <Link to="/profile">
+            <button className="profile-btn" >your profile</button>
+          </Link>
         )}
 
         {isLoggedIn && (

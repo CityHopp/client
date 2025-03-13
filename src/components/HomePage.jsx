@@ -1,17 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./HomePage.css";
-
+import homePageImage from "/images/vecteezy_car-with-baggage-on-top-driving-desert-road_16263838.jpg";
+import friendsImage from"/images/friends.avif";
 function HomePage() {
   return (
+    
     <div className="homepage-container">
       <div className="hero-section">
+        <h2> Welcome to CityHopper – Your Adventure Begins Here!</h2>
         <img
-          src="../src/assets/images/vecteezy_car-with-baggage-on-top-driving-desert-road_16263838.jpg"
+          src={homePageImage}
           alt="Car on a road"
           className="hero-image"
         />
       </div>
+      <section className="info-section">
+        <h2>Scroll, Click, Tap and Go!</h2>
+        <p>
+          Booking a ride has never been easier! Thanks to our simple app powered
+          by great technology, you can book a ride close to you in just minutes.
+        </p>
+        <Link to ="/travelslist">
+         <button>find your trip!</button>
+         </Link>
+      </section>
       <section className="info-section">
         <h2>Your Pick of Rides at Low Prices</h2>
         <p>
@@ -29,18 +42,8 @@ function HomePage() {
         </p>
       </section>
 
-      <section className="info-section">
-        <h2>Scroll, Click, Tap and Go!</h2>
-        <p>
-          Booking a ride has never been easier! Thanks to our simple app powered
-          by great technology, you can book a ride close to you in just minutes.
-        </p>
-        <Link to ="/travelslist">
-         <button>find your trip!</button>
-         </Link>
-      </section>
-
       <section className="security">
+        <img src={friendsImage}/>
       <h2>Help us keep you safe from scams</h2>
       <p>At CityHopper, we're working hard to make our platform as secure as it can be. 
        But when scams do happen, we want you to know exactly how to avoid and report them.

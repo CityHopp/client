@@ -61,7 +61,7 @@ textarea {
   gap: 5px;
 }
 button {
-  width: 30%;
+  width:120px;
   background: #2d4ddb;
   color: white;
   font-size: 0.9rem;
@@ -70,7 +70,7 @@ button {
   border-radius: 4px;
   cursor: pointer;
   transition: background 0.3s ease-in-out;
-  margin: auto;
+  margin: 0px 5px;
 }
 
 button:hover {
