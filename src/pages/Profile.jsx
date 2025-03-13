@@ -77,9 +77,6 @@ export default function Profile() {
             <li>
               <strong>E-Mail:</strong> {user.email}
             </li>
-            <li>
-              <strong>User ID:</strong> {user._id}
-            </li>
             <br />
             <button onClick={() => window.history.back()}>Back</button>
           </ul>
