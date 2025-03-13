@@ -9,6 +9,7 @@ import TravelDetail from './pages/TravelDetails';
 import CreateTravel from './components/CreateTravel';
 import Profile from './pages/Profile';
 import Request from './components/Request'; 
+import AboutUs from "./pages/AboutUs";
 import { Component } from "react";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/travelslist" element={<ListOfTravels />} />
         <Route path="/travelslist/:travelsId" element={<TravelDetail />} />
+        <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/login" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/profile" element={<Profile />} />

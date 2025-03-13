@@ -15,7 +15,7 @@ export default function TravelDetail() {
       })
       .catch((error) => {
         console.error("Error fetching travel data:", error);
-        // navigate("/"); // Redirect to home if error occurs
+       navigate("/"); 
       });
   }, [travelsId, navigate]);
 
